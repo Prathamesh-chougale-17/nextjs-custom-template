@@ -17,14 +17,6 @@ import {
 } from "@/components/ui/sheet";
 import { Input } from "../ui/input";
 import ModeToggle from "./darkmode";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "../ui/dropdown-menu";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -94,24 +86,6 @@ const Navbar: React.FC = () => {
             />
           </div>
         </form>
-        {/* custom profile */}
-        {/* <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
-              <span className="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu> */}
-        {/* clerk profile */}
         <SignedOut>
           <SignInButton />
         </SignedOut>
@@ -140,10 +114,10 @@ const NavLink: React.FC<NavLinkProps> = ({
   const baseStyles = "font-medium transition-colors duration-200";
   const mobileStyles = mobile
     ? "block text-lg py-2 px-4 rounded-md"
-    : "inline-flex items-center px-1 pt-1 text-sm";
+    : "inline-flex items-center px-3 py-2 rounded-md text-sm";
   const activeStyles = isActive
-    ? "text-blue-600 border-b-2 border-blue-600"
-    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100";
+    ? "bg-primary/10 text-primary"
+    : "text-foreground/60 hover:text-foreground hover:bg-accent";
 
   return (
     <Link
