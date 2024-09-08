@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 
 const SignInPage = () => {
   return (
-    <div className="h-[48rem] flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+    <div className="h-[48rem] flex items-center justify-center">
       <Card className="w-full max-w-md bg-white/80 backdrop-blur-md shadow-xl z-10 p-8 rounded-2xl">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Join Our Community
