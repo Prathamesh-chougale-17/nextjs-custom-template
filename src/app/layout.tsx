@@ -4,6 +4,7 @@ import "./globals.css";
 import Layout from "@/components/animations/layout";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BackgroundBeamsWithCollision } from "@/components/animations/background-beams-with-collision";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,11 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ClerkProvider>
-              <Layout>{children}</Layout>
+              <Layout>
+                <BackgroundBeamsWithCollision>
+                  {children}
+                </BackgroundBeamsWithCollision>
+              </Layout>
             </ClerkProvider>
           </ThemeProvider>
         </main>

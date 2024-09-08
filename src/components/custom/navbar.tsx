@@ -86,13 +86,13 @@ const Navbar: React.FC = () => {
             />
           </div>
         </form>
+        <ModeToggle />
         <SignedOut>
           <SignInButton />
         </SignedOut>
         <SignedIn>
           <UserButton />
         </SignedIn>
-        <ModeToggle />
       </div>
     </header>
   );
