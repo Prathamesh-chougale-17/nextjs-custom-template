@@ -63,10 +63,10 @@ const ContactPage: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+          <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
             Let&apos;s Connect <br /> and Create
           </h1>
-          <p className="text-xl text-white/80 mb-8">
+          <p className="text-xl text-black/80 dark:text-white/80 mb-8">
             Reach out and let&apos;s turn your ideas into reality.
           </p>
           <ContactPageAnimation />

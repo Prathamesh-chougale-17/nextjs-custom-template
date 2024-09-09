@@ -70,10 +70,10 @@ const FloatingCard = ({
       whileHover={{ scale: 1.05, rotate: [-1, 1, -1, 1, 0] }}
       whileTap={{ scale: 0.95 }}
     >
-      <Card className="bg-white/10 backdrop-blur-lg border-0 shadow-xl">
+      <Card className="dark:bg-white/10 bg-black/10 backdrop-blur-lg border-0 shadow-xl">
         <CardContent className="p-6">
-          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-          <p className="text-white/80">{content}</p>
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-black/80 dark:text-white/80">{content}</p>
         </CardContent>
       </Card>
     </motion.div>
@@ -97,7 +97,7 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-xl md:text-2xl text-center mb-12 text-white/80 max-w-2xl"
+            className="text-xl md:text-2xl text-center mb-12 text-black/80 dark:text-white/80 max-w-2xl"
           >
             Experience web development like never before. Dive into a world
             where creativity meets technology.
@@ -115,9 +115,9 @@ const HomePage = () => {
           </motion.div>
         </section>
 
-        <section className="py-12 lg:py-24 bg-black/30">
+        <section className="py-12 lg:py-24">
           <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               Our Stellar Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -137,12 +137,12 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className="py-12 lg:py-24 bg-black/30">
+        <section className="py-12 lg:py-24">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-xl mb-12 text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl mb-12 text-black/80 dark:text-white/80 max-w-2xl mx-auto">
               Join us in shaping the future of web development. Let&apos;s
               create something extraordinary together.
             </p>
