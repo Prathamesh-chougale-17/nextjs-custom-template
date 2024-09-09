@@ -8,6 +8,7 @@ import {
   FacebookIcon,
   InstagramIcon,
 } from "../icons";
+import { LinkPreview } from "../animations/link-preview";
 
 const Footer: React.FC = () => {
   return (
@@ -24,7 +25,14 @@ const Footer: React.FC = () => {
         >
           <MountainIcon className="h-6 w-6" />
           <span className="text-sm text-muted-foreground">
-            &copy; 2024 Acme Inc. All rights reserved.
+            &copy; by{" "}
+            <LinkPreview
+              url="https://prathameshchougale.me"
+              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+            >
+              Prathamesh Chougale
+            </LinkPreview>{" "}
+            . All rights reserved.
           </span>
         </motion.div>
         <div className="flex items-center gap-4">
