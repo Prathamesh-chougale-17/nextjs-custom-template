@@ -11,10 +11,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Mail, User, MessageSquare, Send } from "lucide-react";
 import ContactPageAnimation from "@/components/svg/contactsvg";
+import { useToast } from "@/hooks/use-toast";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Invalid email address" }),
+  subject: z
+    .string()
+    .min(3, { message: "Subject must be at least 3 characters" }),
   message: z
     .string()
     .min(10, { message: "Message must be at least 10 characters" }),
@@ -25,6 +28,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const {
     register,
@@ -36,23 +40,41 @@ const ContactPage: React.FC = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      setIsSubmitting(true);
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      setIsSubmitted(true);
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you soon.",
+      });
+      reset();
+    } catch (error) {
+      console.error(error);
+      toast({
+        variant: "destructive",
+        title: "Failed to send message",
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const svgVariants = {
-    hidden: { opacity: 0, pathLength: 0 },
-    visible: {
-      opacity: 1,
-      pathLength: 1,
-      transition: { duration: 2, ease: "easeInOut" },
-    },
-  };
+  // const svgVariants = {
+  //   hidden: { opacity: 0, pathLength: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     pathLength: 1,
+  //     transition: { duration: 2, ease: "easeInOut" },
+  //   },
+  // };
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4 overflow-hidden">
@@ -148,10 +170,10 @@ const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <label
-                        htmlFor="email"
+                        htmlFor="subject"
                         className="block text-sm font-medium mb-1 text-white"
                       >
-                        Email
+                        Subject
                       </label>
                       <div className="relative">
                         <Mail
@@ -159,20 +181,20 @@ const ContactPage: React.FC = () => {
                           size={18}
                         />
                         <Input
-                          id="email"
-                          type="email"
-                          {...register("email")}
+                          id="subject"
+                          type="subject"
+                          {...register("subject")}
                           className="bg-white/20 text-white placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
-                          placeholder="your@email.com"
+                          placeholder="your@subject.com"
                         />
                       </div>
-                      {errors.email && (
+                      {errors.subject && (
                         <motion.p
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="text-red-300 text-sm mt-1"
                         >
-                          {errors.email.message}
+                          {errors.subject.message}
                         </motion.p>
                       )}
                     </div>

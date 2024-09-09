@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/animations/layout";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BackgroundBeamsWithCollision } from "@/components/animations/background-beams-with-collision";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Nextjs Template",
@@ -34,6 +32,7 @@ export default function RootLayout({
                   {children}
                 </BackgroundBeamsWithCollision>
               </Layout>
+              <Toaster />
             </ClerkProvider>
           </ThemeProvider>
         </main>
