@@ -121,11 +121,9 @@ const ContactPage: React.FC = () => {
                       }}
                       className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
                     >
-                      <Send className="text-white" size={24} />
+                      <Send size={24} />
                     </motion.div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
-                      Message Sent!
-                    </h2>
+                    <h2 className="text-2xl font-bold mb-2">Message Sent!</h2>
                     <p className="text-white/80">
                       We&apos;ll get back to you soon.
                     </p>
@@ -142,19 +140,19 @@ const ContactPage: React.FC = () => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium mb-1 text-white"
+                        className="block text-sm font-medium mb-1"
                       >
                         Name
                       </label>
                       <div className="relative">
                         <User
-                          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50"
+                          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black/50 dark:text-white/50"
                           size={18}
                         />
                         <Input
                           id="name"
                           {...register("name")}
-                          className="bg-white/20 text-white placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                          className="bg-white/20 placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                           placeholder="Your name"
                         />
                       </div>
@@ -171,20 +169,20 @@ const ContactPage: React.FC = () => {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-sm font-medium mb-1 text-white"
+                        className="block text-sm font-medium mb-1"
                       >
                         Subject
                       </label>
                       <div className="relative">
                         <Mail
-                          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50"
+                          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black/50 dark:text-white/50"
                           size={18}
                         />
                         <Input
                           id="subject"
                           type="subject"
                           {...register("subject")}
-                          className="bg-white/20 text-white placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                          className="bg-white/20 placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                           placeholder="your@subject.com"
                         />
                       </div>
@@ -201,19 +199,19 @@ const ContactPage: React.FC = () => {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium mb-1 text-white"
+                        className="block text-sm font-medium mb-1"
                       >
                         Message
                       </label>
                       <div className="relative">
                         <MessageSquare
-                          className="absolute left-3 top-3 text-white/50"
+                          className="absolute left-3 top-3 text-black/50 dark:text-white/50"
                           size={18}
                         />
                         <Textarea
                           id="message"
                           {...register("message")}
-                          className="bg-white/20 text-white placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                          className="bg-white/20 placeholder-white/50 pl-10 focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                           placeholder="Your message"
                           rows={4}
                         />
