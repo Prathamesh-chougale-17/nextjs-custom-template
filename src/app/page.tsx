@@ -1,16 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  useVelocity,
-  useSpring,
-  useAnimationFrame,
-  wrap,
-} from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
