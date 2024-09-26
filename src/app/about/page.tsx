@@ -24,32 +24,39 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Alex Chen",
+    name: "Prathamesh Chougale",
     role: "Full Stack Developer",
     avatar: "/api/placeholder/100/100",
     bio: "Passionate about creating scalable and efficient web solutions.",
-    skills: ["React", "Node.js", "GraphQL", "AWS"],
+    skills: ["React", "Node.js", "Nextjs", "AWS"],
   },
   {
-    name: "Samantha Lee",
+    name: "Harsh Agarwal",
     role: "UX/UI Designer",
     avatar: "/api/placeholder/100/100",
     bio: "Dedicated to crafting intuitive and delightful user experiences.",
     skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
   },
   {
-    name: "Raj Patel",
+    name: "Shyam Borole",
     role: "AI Specialist",
     avatar: "/api/placeholder/100/100",
     bio: "Exploring the frontiers of artificial intelligence and machine learning.",
     skills: ["TensorFlow", "PyTorch", "NLP", "Computer Vision"],
   },
   {
-    name: "Elena Rodriguez",
+    name: "Atharv Abhang",
     role: "Product Manager",
     avatar: "/api/placeholder/100/100",
     bio: "Bridging the gap between user needs and technical possibilities.",
     skills: ["Agile", "User Stories", "Roadmapping", "Data Analysis"],
+  },
+  {
+    name: "Shivam Bhendekar",
+    role: "DevOps Engineer",
+    avatar: "/api/placeholder/100/100",
+    bio: "Building and maintaining scalable and secure cloud infrastructure.",
+    skills: ["Docker", "Kubernetes", "Terraform", "CI/CD"],
   },
 ];
 
