@@ -1,6 +1,7 @@
+version: "3"
 services:
-  app:
-    image: prathameshchougale17/portfolio:1.1
+  web:
+    build: .
     ports:
       - "3000:3000"
     environment:

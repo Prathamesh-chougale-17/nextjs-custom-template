@@ -1,15 +1,41 @@
-FROM node:alpine3.20
+# FROM node:alpine3.20
 
-# Create app directory
+# # Create app directory
 
+# WORKDIR /app
+
+# COPY . .
+
+# RUN npm install
+
+# RUN npm run build
+
+# # EXPOSE 3000
+
+# CMD ["npm", "start"]
+
+FROM oven/bun:alpine AS base
+
+# Stage 1: Install dependencies
+FROM base AS deps
 WORKDIR /app
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
 
+# Stage 2: Build the application
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN bun run build
 
-RUN npm install
+# Stage 3: Production image
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
-RUN npm run build
-
-# EXPOSE 3000
-
-CMD ["npm", "start"]
+EXPOSE 3000
+CMD ["bun", "run", "server.js"]
